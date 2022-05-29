@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camon | Homepage</title>
+  <link rel="icon" href="{{url_for('static',filename='icon1.png')}}" type="image/png">
+  <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+<!--  link css file -->
+<link  href="{{ url_for('static',filename='css/home.css')}}" rel="stylesheet"/>
+<style>
+  .footer{
+    margin-top: 60vh;
+    /* background-color: black; */
+    color:white;
+}
+</style>
+</head>
+<body>
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container-fluid">
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <!-- Navbar brand -->
+      <a class="navbar-brand mt-2 mt-lg-0" href="#">
+        <img
+          src="{{ url_for('static',filename='images/main/logo.png') }}"
+          height="35"
+          alt="MDB Logo"
+          loading="lazy"
+        />
+      </a>
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#features">Features</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#pricing">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#working">How it works</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+    </div>
+    <!-- Collapsible wrapper -->
+
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+        <div class="nav-item">
+          <a href='/user'>
+          <button  class=" btn btn-primary " style="margin-right: 10px;">
+            user
+          </button>
+          </a>
+        </div>
+        <a href="/admin">
+        <div class="nav-item">
+          <button class=" btn btn-primary " style="margin-right: 50px;">
+            admin
+            </button>
+        </div>
+        </a>
+        
+       
+
+
+      
+    </div>
+    <!-- Right elements -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+
+<section class="intro-container" id="features">
+   <!-- features for attendance tracker webapp -->
+   
+<div class="entryimg">
+  <img src="{{ url_for('static',filename='images/main/home.png')}}" alt="">
+</div>
+
+<div class="intro" id="intro">
+  <h1 style="padding:200px 40px 30px 300px;font-size :40px; ">Simple and Free Website <br> To Track
+    Attendance by Faces
+  </h1>
+  <p style="padding:0px 40px 200px 300px ;font-size :25px; ;">Increase Productivity and Timesheets
+    Efficiency <br>
+    by managing attendance time and location <br> using Face Recognition Technology</p>
+</div>
+</section>
+
+
+
+
+<section class="working-container" id="working">
+  <div class="heading">
+    <h1>How it works</h1>
+  </div>
+  <div class="main-work-container">
+    <div class="left-container">
+      <div class="step-container">
+ 
+       <div class="step-text">
+         <h4>Create an account</h4>
+         <p>
+           Create an account to track your attendance
+         </p>
+       </div>
+       <div class="step-image">
+         <img src="{{ url_for('static',filename='images/main/step1.jpeg')}}"  class="step-img" alt="">
+       </div>
+      </div>
+      <div class="step-container mt-5">
+       
+       <div class="step-text">
+         <h4>Take a picture</h4>
+         <p>
+           Take a picture of your face to mark and track your attendance
+         </p>
+       </div>
+       <div class="step-image">
+         <img src="{{ url_for('static',filename='images/main/step2.jpg')}}" class="step-img" alt="">
+       </div>
+      </div>
+      <div class="step-container mt-5">
+     
+       <div class="step-text">
+         <h4>Track your attendance</h4>
+         <p>
+           Track your attendance using our website
+         </p>
+       </div>
+       <div class="step-image">
+         <img src="{{ url_for('static',filename='images/main/step3.png')}}"  class="step-img" alt="">
+       </div>
+      </div>
+ </div>
+ <div class="right-container">
+   <img class="tv" src="{{ url_for('static',filename='images/main/tv.png')}}" alt="">
+ </div>
+  </div>
+
+ 
+</section>
+
+
+<section class="pricing-container text-center" id="pricing">
+  <div class="pricing-header">
+    <h2 class="pricing-title">Pricing</h2>
+    <p class="pricing-subtitle">
+      Choose the best plan for you
+    </p>
+  </div>
+<div class="container pricing">
+  <div class="card text-center pricing-card">
+    <div class="card-header" >Free</div>
+    <div class="card-body">
+      <p class="card-title price">₹0</p>
+      <p class="card-text">Our most basic plan for getting started</p>
+      
+    </div>
+    <div class="card-footer ">
+      <a href="#" class="btn btn-primary">Get Started</a>
+    </div>
+  </div>
+
+
+    <div class="card text-center pricing-card" id="mid-card">
+         <p class="absolute top-0 -translate-y-1/2 bg-cyan-500 text-white px-3 py-0.5 text-sm text-white text-semibold tracking-wide rounded-full shadow-md" style="background-color: cyan; ">Most Popular</p>
+      <div class="card-header" >Premium</div>
+     
+      <div class="card-body">
+        <p class="card-title price">₹120</p>
+        <p class="card-text">Our most popular plan with lots of features</p>
+        
+      </div>
+      <div class="card-footer text-muted">
+        <a href="#" class="btn btn-primary">Choose plan</a>  
+      </div>
+    </div>
+
+      <div class="card text-center pricing-card">
+        <div class="card-header" >Enterprise</div>
+        <div class="card-body">
+          <p class="card-title price">₹999</p>
+          <p class="card-text">Built for Enterprise scale</p>
+
+        </div>
+        <div class="card-footer text-muted">
+          
+        <a href="#" class="btn card-btn btn-primary">Contact us</a>
+        </div>
+      </div>
+      
+</div>
+</section>
+
+  </div>
+</div>
+ 
+
+
+<section class="footer bg-light mt-auto" style="color: black;box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45);
+-webkit-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45);
+-moz-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45); ">
+  <div class="container text-center text-md-start mt-4">
+
+
+    <div class="row mt-3" style="padding-top:30px;">
+      <!-- Grid column -->
+
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <img style="margin-left:0px; margin-top:40px;" src="{{ url_for('static',filename='logo.png')}}" alt="">
+
+      </div>
+
+
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4">
+          About
+        </h6>
+        <p>Camon is website <br> for marking <br> attendance</p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4">
+          Quick links
+        </h6>
+        <p>
+          Become a partner <br> Help and Support <br> Home <br> Privacy Policy <br>
+          <Terms of Use>
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+
+        <p>
+          <i class="fas fa-envelope me-3"></i>
+          camon2020.@gmail.com
+        </p>
+        <p><i class="fas fa-phone me-3"></i> + 91 123-456-7890</p>
+        <p><i class="fas fa-print me-3"></i> + 91 123456890</p>
+
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+  <div
+  class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+  <!-- Copyright -->
+  <div class="text-white mb-3 mb-md-0">
+    Copyright © 2020. All rights reserved.
+  </div>
+  <!-- Copyright -->
+
+  <!-- Right -->
+  <div>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-google"></i>
+    </a>
+    <a href="#!" class="text-white">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </div>
+</section>
+
+
+
+  <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
+></script>
+</body>
+</html>

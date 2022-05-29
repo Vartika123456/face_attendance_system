@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camon | dashboard</title>
+  <link rel="icon" href="{{url_for('static',filename='icon1.png')}}" type="image/png">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+  <!-- MDB -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css" rel="stylesheet" />
+
+  <link href="{{ url_for('static',filename='css/dashboard.css') }}" rel="stylesheet" />
+  
+</head>
+
+<body>
+
+
+  <header>
+    <!-- Sidebar -->
+    <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
+      <div class="position-sticky">
+        <div class="list-group list-group-flush mx-3 mt-4">
+          <a id="main-dashboard" onclick="getdata(this, '{{session.name}}' )"
+            class="list-group-item list-group-item-action py-2 ripple active" aria-current="true">
+            <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+          </a>
+          <a id="profile" onclick="getdata(this)" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-user fa-fw me-3"></i><span>Account</span></a>
+          <a id="edit-profile" onclick="getdata(this )" class="list-group-item list-group-item-action py-2 ripple"
+            aria-current="true">
+            <i class="fas fa-user-edit fa-fw me-3"></i><span>Edit Profile</span>
+          </a>
+          <a id="new-employee" onclick="getdata(this)"  class="list-group-item list-group-item-action py-2 ripple ">
+            <i class="fas fa-plus-circle fa-fw me-3"></i><span>New Employee</span>
+          </a>
+          
+          <a id="attendance-stats" onclick="getdata(this)" class="list-group-item list-group-item-action py-2 ripple">
+            <i class="fas fa-chart-pie fa-fw me-3"></i><span>Attendance Stats</span>
+          </a>
+
+
+          <a id="employees" onclick="getdata(this)" class="list-group-item list-group-item-action py-2 ripple"><i
+              class="fas fa-users fa-fw me-3"></i><span>Employees</span></a>
+
+        </div>
+      </div>
+    </nav>
+    <!-- Sidebar -->
+     
+    <!-- Navbar -->
+    <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button class="navbar-toggler" type="button" data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+          aria-label="Toggle navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img src="{{ url_for('static',filename='images/main/logo.png') }}" height="35" alt="MDB Logo" loading="lazy" />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pricing">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+
+        <ul class="navbar-nav ms-auto d-flex flex-row">    
+          <li class="nav-item">
+            <img src="https://mdbootstrap.com/img/Photos/Avatars/avatar.jpg" id="profile_pic" class="rounded-circle" height="30" width="30" alt=""
+              loading="lazy" />
+
+          </li>
+
+          <li class="nav-item dropdown" style="margin-right: 10px;">
+
+            <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
+              id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+              Hello, {{ session['username'] }}
+              <i class="fas fa-caret-down" style="margin-left: 10px;"></i>
+
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="#">My profile</a></li>
+              <li><a class="dropdown-item" href="#">Settings</a></li>
+              <li><a class="dropdown-item" href="/logout">Logout</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <button class="btn btn-primary" onclick="window.location.href='/logout'"
+              style="margin-right: 100px;">Logout</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+
+
+
+  <main style="margin-top: 100px ">
+    <div class="container pt-4 ">
+      <!-- Section: Main chart -->
+      <section class="mb-4">
+        <div class="card text py-3">
+          <h5 class="mb-0 text-center" id="main-heading">
+            Welcome {{ session['name']}}
+          </h5>
+        </div>
+      </section>
+      <section class="mb-4 ls-ele" id="main-data">
+      
+      </section>
+    </div>
+  </main>
+
+  <section class="footer bg-light mt-auto " style="color: black;box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45);
+      -webkit-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45);
+      -moz-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45); 
+       z-index: 2;
+      ">
+    <div class="container text-center text-md-start mt-4">
+
+
+      <div class="row mt-3" style="padding-top:30px;">
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+          <img style="margin-left:0px; margin-top:40px;" src="{{ url_for('static',filename='images/main/logo.png')}}" alt="">
+        </div>
+        <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">About</h6>
+          <p>Camon is website <br> for marking <br> attendance</p>
+        </div>
+        <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+          <!-- Links -->
+          <h6 class="text-uppercase fw-bold mb-4">
+            Quick links
+          </h6>
+          <p>
+            Become a partner <br> Help and Support <br> Home <br> Privacy Policy <br>
+            <Terms of Use>
+          </p>
+        </div>
+        <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+          <!-- Links -->
+
+          <p>
+            <i class="fas fa-envelope me-3"></i>
+            camon2020.@gmail.com
+          </p>
+          <p><i class="fas fa-phone me-3"></i> + 91 123-456-7890</p>
+          <p><i class="fas fa-print me-3"></i> + 91 123456890</p>
+
+        </div>
+        <!-- Grid column -->
+      </div>
+      <!-- Grid row -->
+    </div>
+    <div
+      class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+      <!-- Copyright -->
+      <div class="text-white mb-3 mb-md-0 " style="margin-left: 250px;">
+        Copyright © 2020. All rights reserved.
+      </div>
+      <!-- Copyright -->
+
+      <!-- Right -->
+      <div>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="#!" class="text-white me-4">
+          <i class="fab fa-google"></i>
+        </a>
+        <a href="#!" class="text-white">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+  </section>
+
+
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"></script>
+  <script src="{{ url_for('static',filename='js/dashboard.js')}}"></script>
+  
+</body>
+
+</html>

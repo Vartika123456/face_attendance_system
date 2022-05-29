@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camon | mark attendance</title>
+  <link rel="icon" href="{{url_for('static',filename='icon1.png')}}" type="image/png">
+  <link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.css"
+rel="stylesheet"
+/>
+
+</style>
+<link href="{{ url_for('static',filename='css/user.css') }}" rel="stylesheet" />
+</head>
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!-- Container wrapper -->
+      <div class="container-fluid">
+        <!-- Toggle button -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-mdb-toggle="collapse"
+          data-mdb-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+    
+        <!-- Collapsible wrapper -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Navbar brand -->
+          <a class="navbar-brand mt-2 mt-lg-0" href="#">
+            <img
+              src="{{ url_for('static',filename='images/main/logo.png') }}"
+              height="35"
+              alt="MDB Logo"
+              loading="lazy"
+            />
+          </a>
+          <!-- Left links -->
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/features">Features</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/pricing">Pricing</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/contact">Contact</a>
+            </li>
+          </ul>
+          <!-- Left links -->
+        </div>
+        <!-- Collapsible wrapper -->
+    
+        <!-- Right elements -->
+        <div class="d-flex align-items-center">
+            <div class="nav-item">
+              <a href='/user'>
+              <button  class=" btn btn-primary " style="margin-right: 10px;">
+                user
+              </button>
+              </a>
+            </div>
+            <a href="/admin">
+            <div class="nav-item">
+              <button class=" btn btn-primary " style="margin-right: 50px;">
+                admin
+                </button>
+            </div>
+            </a>
+             
+        </div>
+        <!-- Right elements -->
+      </div>
+      <!-- Container wrapper -->
+    </nav>
+
+    <section class="user-container">
+      <div class="heading">
+        <h1>Welcome to user portal</h1>
+        <p>
+          click mark attendance button to mark attendance
+         </p>
+      </div>
+      <div class="cam-container">
+        <div class=" card">
+          <div class="card-header">Web cam</div>
+          <div class=" card-body">
+           
+           
+            <div class="camera">
+              <video id="video">Video stream not available.</video>
+              <button id="startbutton" class="btn btn-primary">Mark Attendance</button>
+            </div>
+          </div>
+         
+        </div>
+        <div class="card">
+          <div class="card-header">
+            captured photo
+          </div>
+          <div class=" card-body">
+            <canvas id="canvas">
+            </canvas>
+            <div class="output">
+              <img id="photo" alt="The screen capture will appear in this box.">
+            </div>
+           </div>
+        </div>
+      </div>
+   
+        
+     
+         
+             
+            
+           
+         
+                
+    
+
+    </section>
+
+
+<section class="footer bg-light mt-auto" style="color: black;box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45);
+-webkit-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45);
+-moz-box-shadow: 0px 0px 24px 0px rgba(0,0,0,0.45); 
+ width: 100%;
+">
+  <div class="container text-center text-md-start mt-4">
+ 
+
+    <div class="row mt-3" style="padding-top:30px;">
+      <!-- Grid column -->
+
+      <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+        <!-- Content -->
+        <img style="margin-left:0px; margin-top:40px;" src="{{ url_for('static',filename='images/main/logo.png')}}" alt="">
+
+      </div>
+    
+      <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4">
+          About
+        </h6>
+        <p>Camon is website <br> for marking <br> attendance</p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+        <!-- Links -->
+        <h6 class="text-uppercase fw-bold mb-4">
+          Quick links
+        </h6>
+        <p>
+          Become a partner <br> Help and Support <br> Home <br> Privacy Policy <br>
+          <Terms of Use>
+        </p>
+      </div>
+      <!-- Grid column -->
+
+      <!-- Grid column -->
+      <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+        <!-- Links -->
+
+        <p>
+          <i class="fas fa-envelope me-3"></i>
+          camon2020.@gmail.com
+        </p>
+        <p><i class="fas fa-phone me-3"></i> + 91 123-456-7890</p>
+        <p><i class="fas fa-print me-3"></i> + 91 123456890</p>
+
+      </div>
+      <!-- Grid column -->
+    </div>
+    <!-- Grid row -->
+  </div>
+  <div
+  class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-primary">
+  <!-- Copyright -->
+  <div class="text-white mb-3 mb-md-0">
+    Copyright © 2020. All rights reserved.
+  </div>
+  <!-- Copyright -->
+
+  <!-- Right -->
+  <div>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-twitter"></i>
+    </a>
+    <a href="#!" class="text-white me-4">
+      <i class="fab fa-google"></i>
+    </a>
+    <a href="#!" class="text-white">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+  </div>
+</section>
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.0.0/mdb.min.js"
+></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="{{ url_for('static',filename='js/user.js')}}"></script>
+</body>
+</html>
